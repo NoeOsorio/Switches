@@ -1,0 +1,33 @@
+.led-box {
+  /* height: 30px;
+  width: 25%; */
+  margin: 10px 0;
+  float: left;
+}
+
+.led-box p {
+  font-size: 12px;
+  text-align: center;
+  margin: 1em;
+}
+
+.led-green-on {
+  margin: 0 auto;
+  width: 3em;
+  height: 3em;
+  background-color: #abff00;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 17px 10px, inset #304701 0 -1px 20px,
+    #89ff00 0 2px 12px;
+}
+
+.led-green-off {
+  margin: 0 auto;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+
+  background-color: #5e8c03;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #47650a 0 -1px 9px,
+    #ff0 0 2px 0;
+}
