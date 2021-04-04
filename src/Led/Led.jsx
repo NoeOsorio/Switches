@@ -1,7 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { getOutput } from "../Redux/selectors";
 import "./Led.css";
 
-export default function Led({ color = "green", active = false }) {
+const key = [true, false, false, true, false, false, true, true];
+
+export default function Led({ color = "green", index }) {
+  const leds = useSelector(getOutput);
+
+  const active = leds[index] === key[index];
   return (
     <div className="container">
       <div className="led-box">

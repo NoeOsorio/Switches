@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { updateBits } from "../Redux/actions";
 import "./Switch.scss";
 
-export default function Switch({ changeLed, cipher }) {
+export default function Switch({ changeLed, cipher, index }) {
   const [checked, setchecked] = useState(false);
+  const dispatch = useDispatch();
 
   const change = () => {
-    changeLed(!checked);
     setchecked(!checked);
-    setTimeout(cipher, 1000);
+    dispatch(updateBits(index, !checked));
   };
 
   return (
