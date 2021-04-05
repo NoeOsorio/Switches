@@ -1,0 +1,79 @@
+.App {
+  text-align: center;
+}
+
+nav {
+  display: inline;
+  margin-bottom: 2em;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #3f51b5;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+header span {
+  /* width: 1000px; */
+  text-overflow: ellipsis;
+  display: block;
+
+  word-break: break-all;
+  white-space: break-spaces;
+}
+
+.main {
+  width: 400px;
+  margin: auto;
+}
+
+.main form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+input,
+textarea {
+  border-radius: 10px;
+  border: 1px solid #2196f3;
+  padding: 1em;
+  margin: 1em;
+  font-family: inherit;
+}
+
+button {
+  margin: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #2196f3;
+  color: white;
+  padding: 0.5em;
+  font-weight: 700;
+  font-size: large;
+}
+
+button:hover {
+  box-shadow: 3px 3px 5px 3px #2195f34f;
+}
+
+.main form p {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

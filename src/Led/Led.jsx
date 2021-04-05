@@ -1,9 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { key } from "../App";
 import { getOutput } from "../Redux/selectors";
 import "./Led.css";
-
-const key = [true, false, false, true, false, false, true, true];
 
 export default function Led({ color = "green", index }) {
   const leds = useSelector(getOutput);
