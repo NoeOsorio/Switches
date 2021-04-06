@@ -9,15 +9,13 @@ import { BooleanToBits } from "../Logic/Converter";
 
 export default function EncryptApp() {
   const output = useSelector(getOutput);
-  console.log("Llave", BooleanToBits(key));
-  console.log("Output", BooleanToBits(output));
 
   const visible = BooleanToBits(key) === BooleanToBits(output);
 
   return (
     <Router>
       {visible ? (
-        <div style={{ "margin-top": "1em" }}>
+        <div style={{ marginTop: "1em" }}>
           <nav>
             <ul>
               <li>

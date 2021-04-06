@@ -1,33 +1,43 @@
 import "./EncryptApp.css";
 import { useState } from "react";
-import axios from "axios";
 import { useSelector } from "react-redux";
 import { getOutput } from "../Redux/selectors";
 import { BooleanToBits } from "../Logic/Converter";
+import { decrypt } from "../Led/Backend";
 
 export default function Decrypt() {
-  const [ciphertext, setMessage] = useState("");
+  const [ciphertext, setMessage] = useState(
+    localStorage.getItem("cipher") || ""
+  );
   const [plaintext, setDecrypt] = useState("");
   const key = useSelector(getOutput);
 
   const copyToClipboard = () => {
-    console.log(plaintext);
     navigator.clipboard.writeText(plaintext);
   };
   const onSubmit = (e) => {
     e.preventDefault();
 
-    axios
-      .post("https://us-central1-cripto-buap.cloudfunctions.net/decrypt", {
-        ciphertext,
-        key,
-      })
-      .then((res) => {
-        setDecrypt(res.data);
-      })
-      .catch(() => {
-        console.log("Error");
-      });
+    try {
+      const plain = decrypt(ciphertext, key);
+
+      setDecrypt(plain);
+      localStorage.setItem("plain", plain);
+      localStorage.removeItem("cipher");
+    } catch (error) {
+      console.error(error);
+    }
+    // axios
+    //   .post("https://us-central1-cripto-buap.cloudfunctions.net/decrypt", {
+    //     ciphertext,
+    //     key,
+    //   })
+    //   .then((res) => {
+    //     setDecrypt(res.data);
+    //   })
+    //   .catch(() => {
+    //     console.log("Error");
+    //   });
   };
 
   return (
